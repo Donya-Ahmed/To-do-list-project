@@ -1,0 +1,14 @@
+{{>header}}
+{{>navbar}}
+ <form class="container mt-5" method="post" action="/editSingleLogic/{{task.title}}">
+        <div class="mb-3">
+            <input class="form-control" placeholder="Title" name="title" value="{{task.title}}" >
+        </div>
+        <div class="mb-3">
+            <input class="form-control" placeholder="Content" name="content" value="{{task.content}}">
+        </div>
+        <div class="mb-3">
+            <button class="btn btn-primary">Edit</button>
+        </div>
+    </form>
+{{>footer}}

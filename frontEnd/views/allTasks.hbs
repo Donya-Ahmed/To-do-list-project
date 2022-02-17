@@ -1,0 +1,45 @@
+{{>header}}
+{{>navbar}}
+
+<section class="container">
+    <table class="table table-bordered my-4">
+        <thead>
+            <th>Title</th>
+            <th>Content</th>
+            <th>Controls</th>
+        </thead>
+        <tbody>
+            {{#if   hasTasks}}
+             {{#each  allTasks }}
+            <tr>
+                <td>{{this.title}}</td>
+                 <td>{{this.content}}</td>
+                 <td>
+                       <a href="/showSingle/{{this.title}}"  class="btn btn-primary me-2">Show</a>
+                       <a href="/editSingle/{{this.title}}"  class="btn btn-warning me-2">Edit</a>
+                      <a href="/delSingle/{{this.title}}"  class="btn btn-danger me-2">Delete</a>
+
+
+                 </td>
+
+            </tr>
+            {{/each}}
+           
+
+            {{else}}
+             <tr>
+                <td colspan="3" class="alert alert-danger text-center"> No tasks yet!</td>
+            </tr>
+            {{/if}}
+           
+        </tbody>
+
+    </table>
+    <div class="mt-5" >
+        <form method="post" action="/delAll">
+            <button class="btn btn-danger">Delete all</button>
+
+        </form>
+    </div>
+</section>
+{{>footer}}
